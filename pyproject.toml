@@ -14,6 +14,9 @@ jieba = "^0.42.1"
 requests = "^2.31.0"
 beautifulsoup4 = "^4.12.2"
 pymongo = "^4.6.1"
+tqdm = "^4.66.1"
+pandas = "^2.1.4"
+wordcloud = "^1.9.3"
 
 
 [build-system]
