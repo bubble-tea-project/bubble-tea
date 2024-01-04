@@ -33,7 +33,7 @@ if __name__ == '__main__':
 
     scraping_ptt = scraping.Ptt()
 
-    # scraping_ptt.save_post_list( "Gossiping" , period_start="2023-12-22" , period_end="2023-12-24" , file_path="data/post_list"  )
+    # scraping_ptt.save_post_list( "Gossiping" , period_start="2023-12-22" , period_end="2023-12-24" , file_path="_tests/data/post_list"  )
 
     def __to_html_period(file_path, board, period_start, period_end):
 
@@ -48,11 +48,11 @@ if __name__ == '__main__':
             print(f"iter - path: {path} ")
 
             for file in path.iterdir():
-                scraping_ptt.to_html_from_post_list(file, "data/html")
+                scraping_ptt.to_html_from_post_list(file, "_tests/data/html")
 
             end_datetime -= day
 
-    # __to_html_period( "data/post_list" , "Gossiping" , period_start="2023-12-22" , period_end="2023-12-24" )
+    # __to_html_period( "_tests/data/post_list" , "Gossiping" , period_start="2023-12-22" , period_end="2023-12-24" )
 
     # endregion
 
@@ -77,7 +77,7 @@ if __name__ == '__main__':
             print()
             print(f"iter - path: {path} ")
 
-            path_out = pathlib.Path(R"data/parsed") / board / end_datetime.strftime("%Y-%m-%d")
+            path_out = pathlib.Path(R"_tests/data/parsed") / board / end_datetime.strftime("%Y-%m-%d")
             path_out.mkdir(parents=True, exist_ok=True)
 
             for index, file in enumerate(path.iterdir()):
@@ -88,7 +88,7 @@ if __name__ == '__main__':
 
             end_datetime -= day
 
-    # __parse_period( "data/html" , "Gossiping" , period_start="2023-12-23" , period_end="2023-12-23" )
+    # __parse_period( "_tests/data/html" , "Gossiping" , period_start="2023-12-23" , period_end="2023-12-23" )
 
 
     # multiprocessing version
@@ -111,7 +111,7 @@ if __name__ == '__main__':
             print()
             print(f"iter - path: {path} ")
 
-            path_out = pathlib.Path(R"data/parsed") / board / end_datetime.strftime("%Y-%m-%d")
+            path_out = pathlib.Path(R"_tests/data/parsed") / board / end_datetime.strftime("%Y-%m-%d")
             path_out.mkdir(parents=True, exist_ok=True)
 
             # ----
@@ -129,7 +129,7 @@ if __name__ == '__main__':
 
             end_datetime -= day
 
-    # __parse_period_mt( "data/html" , "Gossiping" , period_start="2023-12-22" , period_end="2023-12-22" )
+    # __parse_period_mt( "_tests/data/html" , "Gossiping" , period_start="2023-12-22" , period_end="2023-12-22" )
 
     # endregion
 
@@ -300,10 +300,10 @@ if __name__ == '__main__':
         themes_count_period = analysis_cls.sum_themes_count_by_period(posts_themes_count, posts_time, period)
         __to_json(R"data\parsed\period.json", themes_count_period)
 
-    # __analysis_period( "data/parsed" , "Gossiping" , period_start="2023-12-24" , period_end="2023-12-24" )
-    # __count_themes_period( "data/parsed" , "Gossiping" , period_start="2023-12-24" , period_end="2023-12-24" )
-    # __sum_themes_all_period( "data/parsed" , "Gossiping" , period_start="2023-12-24" , period_end="2023-12-24" )
-    # __sum_themes_period( "data/parsed" , "Gossiping", datetime.timedelta(hours=1) , period_start="2023-12-24" , period_end="2023-12-24" )
+    # __analysis_period( "_tests/data/parsed" , "Gossiping" , period_start="2023-12-24" , period_end="2023-12-24" )
+    # __count_themes_period( "_tests/data/parsed" , "Gossiping" , period_start="2023-12-24" , period_end="2023-12-24" )
+    # __sum_themes_all_period( "_tests/data/parsed" , "Gossiping" , period_start="2023-12-24" , period_end="2023-12-24" )
+    # __sum_themes_period( "_tests/data/parsed" , "Gossiping", datetime.timedelta(hours=1) , period_start="2023-12-24" , period_end="2023-12-24" )
 
 
     # multiprocessing version
@@ -352,7 +352,7 @@ if __name__ == '__main__':
             #
             end_datetime -= day
 
-    __analysis_period_mt("data/parsed", "Gossiping", period_start="2023-12-22", period_end="2023-12-22")
+    __analysis_period_mt("_tests/data/parsed", "Gossiping", period_start="2023-12-22", period_end="2023-12-22")
 
     # endregion
 
@@ -372,7 +372,7 @@ if __name__ == '__main__':
         plt.axis("off")
 
         # plt.show()
-        path = R"data/parsed/" + name + ".jpg"
+        path = R"_tests/data/parsed/" + name + ".jpg"
         plt.savefig(path, dpi=500)
 
     def __get_word_cloud_period(period_list):

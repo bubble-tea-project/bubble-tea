@@ -93,8 +93,8 @@ class Analysis:
         print(f"get_themes ......")
 
         import jieba
-        jieba.set_dictionary(R'data/other/dict.txt.big')  # 支持繁体分词更好的词典文件 https://github.com/fxsjy/jieba/raw/master/extra_dict/dict.txt.big
-        jieba.load_userdict(R"data\other\dict_t1.txt")
+        jieba.set_dictionary(R'_tests/data/other/dict.txt.big')  # 支持繁体分词更好的词典文件 https://github.com/fxsjy/jieba/raw/master/extra_dict/dict.txt.big
+        jieba.load_userdict(R"_tests/data/other/dict_t1.txt")
 
         # 精确模式
         seg_list = jieba.cut(string)
